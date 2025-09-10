@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>河馬眼睛指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        .scroll-m-top-sticky {
+            scroll-margin-top: 5rem; 
+        }
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-2xl font-bold text-teal-600">河馬眼睛指南</h1>
+                <div class="text-sm text-gray-500">高安全等級產品列表</div>
+            </div>
+        </div>
+    </header>
+    
+    <div id="app" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Introduction -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold mb-2">安全等級被評為「高」的產品，並已為您進行分類：</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">這份清單整理自使用者查詢紀錄中，被評為安全等級高的產品。所有項目均經過篩選，排除名稱無法清楚識別的品項，為您的選購提供參考。<b>點擊品項可直接進行 Google 搜尋。</b></p>
+            
+            <!-- AI Disclaimer -->
+            <div class="mt-4 max-w-2xl mx-auto bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg text-sm" role="alert">
+              <p><strong class="font-bold">重要提醒：</strong>本頁面所有產品分類與資訊均由 AI 自動生成，可能存在誤差，僅供參考。購買前請務必再次核對產品實際標示與資訊。</p>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div id="filters-container" class="sticky top-[72px] bg-gray-50/95 backdrop-blur-sm z-10 py-4 mb-8 border-b">
+            <div class="flex flex-wrap justify-center gap-2">
+                <!-- Filters will be injected here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Product List -->
+        <main id="product-list" class="space-y-12">
+            <!-- Product categories and items will be injected here by JavaScript -->
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 河馬眼睛指南. 資料僅供參考。</p>
+            <p class="mt-2 text-xs">83764663 小河馬工作室有限公司</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productList = document.getElementById('product-list');
+            const filtersContainer = document.getElementById('filters-container').querySelector('div');
+
+            const productsData = {
+                "醬料調味": {
+                    icon: '🧂',
+                    items: ["Coppola 無加糖蘑菇紅醬 (全素)", "DE CECCO 拿坡里義大利麵醬 (全素)", "Isabelle Huot 水果抹醬 (全素)", "上等鵝油香蔥", "牛頭牌沙茶醬", "可果美蕃茄醬", "喜善之泉 有機 素蠔油 (全素)", "國手工奶油蛋捲經典原味", "純在天然蔬果沾醬胡蘿蔔 (全素)", "萬家香薄鹽有機醬油 (全素)", "萬家香零添加純釀醬油", "萬家香零添加有機醬油 (全素)", "義美全豆無添加醬油", "義美香拌紅蔥油", "屏大薄鹽醬油膏", "關山米乖乖 口味奶油椰子", "厚奶油楓糖派", "厚奶油蝴蝶酥", "久世福伊予柑果醬 (全素)"]
+                },
+                "零食點心": {
+                    icon: '🍪',
+                    items: ["Popcorners 爆米花脆片海鹽口味 (全素)", "SIMPLE WHITE CRACKERS", "卡迪那 玉米糙米脆片原味", "卡迪那 豌豆脆片 原味 (全素)", "卡迪那豌豆脆片原味 (全素)", "古董ㄟ手工南瓜脆片", "台塑嚴選 蔥抓餅", "奮起福米餅原味", "奇亞籽餅乾 (全素)", "京都西村本舖蛋酥南瓜", "京田巧虎牛奶造型餅乾", "京田製菓巧虎寶寶乳酸菌優格餅乾 (草莓口味)", "京田製菓巧虎寶寶米餅(草莓口味) (全素)", "京田製藥巧虎寶寶乳酸菌優格餅乾 (藍莓口味)", "美好人生 Dr. Rice 稻鴨米餅 (全素)", "本味誠現乳酥餅", "樂食廚房 古早味粉漿蛋餅粉 (純素)", "獻烘焙 IMINDING 千層捲捲酥 (奶素)", "米森 有機黑芝麻餅", "西村 迷你蛋酥 (6包)", "彩虹藜麥青蔥蘇打餅 (五辛素)", "濟州馬鈴薯脆片 (全素)", "韓爸田園日記 星繽樂米球餅草莓優格口味", "오마이솔트가 제주에서 만든 찹쌀 김부각 (Oh My Salt 제주手工糯米海苔脆片) (全素)", "芙菲小餅(原味)", "糯米海苔脆片 (全素)", "小鬆餅家原味鬆餅"]
+                },
+                "粉類製品": {
+                    icon: '🌾',
+                    items: ["DIY 優質玉米粉 (全素)", "TCELL1 乳酸菌粉", "卡蘿琳多層包覆專利乳酸口味 (產品標示為全素，但成分含乳糖及優酪乳粉，非純素)", "孕哺兒®寶貝護力莓™ 接骨木莓葡萄醣粉狀食品 (奶素可食)"]
+                },
+                "飲品": {
+                    icon: '🥤',
+                    items: ["AGV 燕麥飲品", "StarM 星岳愛波尚飲", "純在一奇亞籽蜂蜜檸檬飲 (全素)", "純新milk17原味牛奶棒", "蜜香紅烏龍茶歐蕾", "醋覓純釀雙果醋氣泡飲 / 水蜜桃葡萄", "義美無加糖仙草甘茶 (全素)", "義美生醫W PROTEIN 乳清蛋白飲抹茶"]
+                },
+                "米麵主食": {
+                    icon: '🍚',
+                    items: ["Maeil 蘋果米棒棒 (全素)", "NOBI NOBI 兔兔小米葉起司蔬菜", "RICE LONG LONG POP 寶寶米棒草莓", "安卡維 三色蔬菜卡通麵 (素食可用)", "池上香米飯 (全素)", "米米花 手炒鹽味焦糖味 (奶素)", "米森 乳酸菌咬咬草莓優格 (恐龍)", "綠巨人 Green Giant 生機無鹽玉米粒 (全素)", "綠巨人天然特甜玉米粒 (全素)", "義美純米醋 (全素)", "韓爸田園日記 如意金箍米棒 水果 (全素)"]
+                },
+                "糖果甜食": {
+                    icon: '🍬',
+                    items: ["ACE SUPER KIDS Multi Vita 綜合活力軟糖 (非全素)", "火星糖", "光泉無加糖優酪乳", "旺隆 黃金糖", "梨青枇杷棒棒糖 (全素)", "日本黃金糖", "義美無加糖元氣豆奶 (全素)", "素食接骨木莓軟糖 (全素)", "黃金12度濃豆漿 (微糖) (全素)"]
+                },
+                "其他": {
+                    icon: '🛒',
+                    items: ["ACE斑斑水果條 (草莓+奇亞籽) (全素)", "ARANYA MANGOSTEEN FREEZEDRIED (山竹干)", "Durian Monthong 100% (榴槤金枕頭) (全素)", "EE01 元氣雞肉親子丼 (中低調味)", "EZEKIEL 4:9 SPROUTED WHOLE GRAIN BREAD (全素)", "Fruit King 冷凍乾燥山竹果乾", "GrandHealth 抗氧化複方膠囊 (保健食品)", "Jeju Potato Bugak (全素)", "Kirkland Signature 科克蘭烤海苔 (全素)", "Kocel Psyllium Husk 6g (全素)", "Organix 有機寶寶番茄圈圈 (全素)", "Ovenbaked Crispy Coconut 純天然椰子乾 (全素)", "SHANGSI 新鮮草莓凍乾 (全素)", "大武山牧場 濃醇雞蛋布丁", "元氣滿鰻粥", "初鹿牧場原味牛乳 (保久調味乳)", "立展手工魚餃 (非全素)", "光泉優酪乳 (原味)", "有機木棉豆腐 (全素)", "水煮鯖魚", "베베김 (소금무첨가)", "小手掌寶寶藍莓司康", "迷你微笑可頌(原味鮮奶)", "煌輝洋芋片", "淡鹽原香", "無添加熱黑豬肉香腸經典原味", "義美生機 水果穀物圈 (莓果) (全素)", "馬修嚴選 芝麻牛奶烤燕麥", "바다친구 키즈김 (Sea Friend Kids Gim)", "麒麟淡麗GREEN LABEL 啤酒", "土雞蛋蛋捲原味 (蛋奶素)", "維生素D3", "空星小泡芙", "紫薯起司小吐司", "小星小泡芙 藍莓、香蕉 (全素)", "綜合手蛋捲", "一日蔬果100%蘋果柳橙綜合蔬果汁 (全素)", "野生藍莓乾 (全素)", "紅藜麥棒", "鯊魚寶貝鮮乳芋泥包 (奶素)", "100% 蘋果 (全素)", "100%鮮乳+初乳", "純国産 りんごゼリー (全素)", "披薩乳酪絲 (奶素)", "高鈣起司鮮乳饅頭捲【奶素】", "712D益生菌克菲爾PLUS", "一日蔬果100%水蜜桃蘋果綜合蔬果汁", "義美寶吉純果汁 (葡萄綜合)", "義美生機 堅果棒 (蔓越莓) (全素)", "愛子豆乳貝果 經典原味 (全素)", "萬歲牌 杏仁小魚", "雀ås濃縮全脂乳", "健司纖三薯 (全素)", "크래프트 인스턴트 커피 (Craft Instant Coffee)", "統一生機 Original 葡萄乾 (全素)", "紐西蘭日曬天然海鹽", "永泉仙人掌冰棒 (全素)", "耶馬特泥灘傳統海苔 (全素)", "蜂膠草本噴喉劑", "義美生機 冷凍乾燥蘋果 (純素)", "頂級紅蔘精華 (全素)", "熟鳳尾蝦仁", "猴頭菇鮮蔬雜糧水餃 (蛋素)", "澎湖手工花枝蝦捲", "澎湖媽宮花枝披薩", "韓國昆布鯷魚高湯包", "雪塩 (Yukishio) 海水鹽", "鮮乳坊100%生乳保久乳 (非全素)", "十全味醂調味料", "中華板豆腐 (全素)", "純黑胡椒粗粒 (全素)", "杏仁丁香", "日本向（DELTA）薩爾塔納葡萄乾 (全素)", "冷凍乾燥水蜜桃 (全素)", "南國沖縄 べにいもげんまい (Beniimo Genmai from Southern Okinawa) (全素 根據成分 판단)", "養樂多全脂鮮乳", "天然だしパック 特撰", "黑豆桑 (全素)", "鮮乳坊真優格豐樂牧場鮮乳優格", "領航雙效舒敏菌", "雪比豆漿優格 (奶素)", "孕哺兒 寶貝系列 寶寶護力莓™ (全素)", "海燕窩磚 (全素)", "四璽綜合堅果 (全素)", "乾操アーサ (全素)", "耕有機絹豆腐 (全素)", "輕卡厚雞塊", "藍莓優格貝果 (奶素)"]
+                }
+            };
+
+            Object.keys(productsData).forEach(category => {
+                const categoryData = productsData[category];
+                const categoryId = `category-${category}`;
+
+                const filterButton = document.createElement('button');
+                filterButton.className = 'px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-teal-50 hover:border-teal-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all';
+                filterButton.textContent = `${categoryData.icon} ${category}`;
+                filterButton.onclick = () => {
+                    document.getElementById(categoryId).scrollIntoView({ behavior: 'smooth' });
+                };
+                filtersContainer.appendChild(filterButton);
+
+                const section = document.createElement('section');
+                section.id = categoryId;
+                section.className = 'scroll-m-top-sticky';
+
+                const title = document.createElement('h2');
+                title.className = 'text-2xl font-bold mb-6 flex items-center gap-3';
+                title.innerHTML = `<span class="text-3xl">${categoryData.icon}</span> ${category}`;
+                section.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4';
+                
+                categoryData.items.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = `https://www.google.com/search?q=${encodeURIComponent(item)}`;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.className = 'block bg-white p-4 rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-teal-200 transition-all hover:-translate-y-1 product-card';
+                    
+                    const cardContent = document.createElement('div');
+                    cardContent.textContent = item;
+                    
+                    link.appendChild(cardContent);
+                    grid.appendChild(link);
+                });
+
+                section.appendChild(grid);
+                productList.appendChild(section);
+            });
+        });
+    </script>
+</body>
+</html>
+
